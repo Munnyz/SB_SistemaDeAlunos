@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css">
+	<title>Academia Alunos</title>
+	<meta name="author" content="Lucas Salles">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://kit.fontawesome.com/006642858d.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&family=Ubuntu&family=Work+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body>
+		
+		<header th:fragment="cabecalho">
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6A1B9A;">
+
+			<a class="navbar-brand" th:href="@{/index}">
+				<img src="/img/header-site.png" width="200px"/>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMobile">
+					<span class="navbar-toggler-icon"></span>
+			</button>
+		  
+			<div class="navbar-collapse collapse justify-content-end" id="navMobile">
+			 
+				  <a th:href="@{/index}" class="btn-nav nav-item nav-link"><i class="fas fa-home"></i> Home</a>				
+				  <a class="btn-nav nav-item nav-link" th:href="@{inserir}"><i class="fas fa-user-graduate"></i> Cadastro de Alunos</a>						
+				  <form action="/logout" method="post">
+					<button type="submit" class="nav-item nav-link btn-danger exit"><i class="fas fa-times"></i> Sair</button>
+				  </form>		
+			</div>
+		  </nav>		
+		</header>
+
+
+	<!-- Inicio do modal -->
+	<div class="modal fade" id="modalPesquisa" th:fragment="modal">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Encontre um aluno</h5>
+					<button type="button" class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+
+				<form method="post" action="pesquisar-aluno" th:object="${aluno}">
+					<div class="modal-body">
+						<input placeholder="Digite o nome do aluno" type="text" th:field="*{nome}" class="form-control">
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-danger" data-dismiss="modal">Fechar</button>
+						<button type="submit" class="btn btn-success">Pesquisar</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+	<footer th:fragment="rodape">
+		<div class="rodape">
+			<span>Todos os direitos reservados - 2022 &copy; Lucas Salles</span>
+		</div>
+	</footer>
+
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css">
+	<title>Academia Alunos</title>
+	<meta name="author" content="Lucas Salles">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://kit.fontawesome.com/006642858d.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&family=Ubuntu&family=Work+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body>
+	<header th:fragment="cabecalho">
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6A1B9A;">
+			<a class="navbar-brand" th:href="@{/index}">
+				<img src="/img/header-site.png" width="200px"/>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMobile">
+					<span class="navbar-toggler-icon"></span>
+			</button>		  
+			<div class="navbar-collapse collapse justify-content-end" id="navMobile">
+			 
+				  <a th:href="@{/index}" class="btn-nav nav-item nav-link"><i class="fas fa-home"></i> Home</a>				
+				  <a class="btn-nav nav-item nav-link" th:href="@{inserir}"><i class="fas fa-user-graduate"></i> Cadastro de Alunos</a>								
+				  <a data-toggle="modal" data-target="#modalPesquisa" class="btn-nav nav-item nav-link" href=""><i class="fas fa-search"></i> Pesquisar Aluno</a>				
+				  <form action="/logout" method="post">
+					<button type="submit" class="nav-item nav-link btn-danger"><i class="fas fa-times"></i> Sair</button>
+				  </form>		
+			</div>
+		  </nav>		
+	</header>
+
+	<section class="neo-section" style="background-image: url('img/bg-index.jpg');">
+
+		<div class="sombra"></div>
+		
+		<div class="center neo-container">
+			<h1 class="txt-centro">Gerenciamento de Alunos</h1>
+		
+			<div class="botoes">
+				<div class="wm">
+					<a th:href="@{/inserir}" class="btne">Cadastrar Aluno</a>
+				</div>
+
+				<div class="wm">
+					<a th:href="@{filtro-alunos}" class="btne justify-content-center">Encontrar Aluno</a>
+				</div>
+				<div class="clear"></div>
+
+			</div>
+		</div>
+	</section>
+
+	<div th:replace="fragmentos/fragmentos :: modal"></div>	
+	<div th:replace="fragmentos/fragmentos :: rodape"></div>	
+
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
