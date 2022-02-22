@@ -106,6 +106,7 @@ public class AlunoController {
 		return mv;
 	}		
 	
+	
 	@PostMapping("pesquisar-aluno")
 	public ModelAndView pesquisarAluno(@RequestParam(required = false) String nome) {
 		ModelAndView mv = new ModelAndView();

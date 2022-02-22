@@ -17,7 +17,6 @@ public class UsuarioController {
 	@Autowired
 	private UserDao UserRepo;
 
-	
 	@GetMapping("/")
 	public ModelAndView Login() {
 		ModelAndView mv = new ModelAndView();
@@ -33,6 +32,7 @@ public class UsuarioController {
 		mv.addObject("aluno", new Aluno());
 		return mv;
 	}
+	
 	
 	@GetMapping("/cadastro")
 	public ModelAndView Cadastro() {
